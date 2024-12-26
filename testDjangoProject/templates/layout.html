@@ -1,0 +1,32 @@
+{% load static %} {% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Home Page {% endblock %}</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <nav
+      class="bg-neutral-200 flex py-4 px-8 rounded-xl mx-4 my-2 items-center justify-between"
+    >
+      <div class="bg-neutral-100 p-2 rounded-xl font-semibold font-mono">
+        Currently on {% block page_name %} Home Page {% endblock %}
+      </div>
+      <ul
+        class="navbar-list flex gap-4 bg-neutral-100 p-2 rounded-xl font-mono font-semibold"
+      >
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="m-4 bg-neutral-200 rounded-xl p-4">
+      <div class="bg-neutral-100 rounded-xl p-4">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
